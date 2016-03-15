@@ -1,8 +1,5 @@
-
-
-
-	<!DOCTYPE html>
-	<html>
+<!DOCTYPE html>
+<html>
 	<head>
 		<title> Pragprog Books Online Store </title>
 		<%= stylesheet_link_tag "scaffold" %>
@@ -17,9 +14,13 @@
 		</div>
 		<div id = "columns"> 
 			 <div id = "side">
-			 	<div id = "cart">
-			 		<%= render @cart %>
-			 	</div>
+			 	<!-- <div id = "cart"> -->
+			 	<%if @cart %>
+			 		<%= hidden_div_if(@cart.line_items.empty?, :id => "cart") do %>
+			 			<%= render @cart %>
+					<% end %>
+			 	<!-- </div> -->
+			 	<% end %>
 				<a  href = "http://www....">Home</a> <br />
 				<a  href = "http://www....">Questions</a> <br />
 				<a  href = "http://www....">News</a> <br />
