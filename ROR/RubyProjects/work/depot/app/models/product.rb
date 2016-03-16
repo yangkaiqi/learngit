@@ -7,7 +7,8 @@ class Product < ActiveRecord::Base
 	scope :ordered_by_title, -> { reorder(title: :asc) }
 
 	
-	# has_many :line_items
+	has_many :line_items
+	has_many :orders, :through => :line_items
 	# before_destory :ensure_not_referenced_by_any_line_item
 
 	def self.included(base)

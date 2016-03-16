@@ -1,3 +1,5 @@
+page.select("#{notice}").each {|notice| noeice.hide}
+
 page.replace_html('cart',render(@cart))
 
 
